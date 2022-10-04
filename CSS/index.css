@@ -635,12 +635,15 @@ transition: .3s;
 }
 
 .signUp-PopUpContainer div .submitPopUp {
+    all: initial;
+    font-family: inherit;
   background: white;
   color:black;
   border: 1px solid white;
   font-size: 18px;
   font-weight: bold;
-  padding: .7em .4em;
+  text-align: center;
+  padding: .5em .4em;
   width:200px;
   margin:15px auto 15px auto;
   cursor: pointer;

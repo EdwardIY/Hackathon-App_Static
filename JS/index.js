@@ -44,7 +44,11 @@ closePopUp.forEach((x) => {
   });
 });
 
-submitFormBtn.addEventListener('click', submit);
+
+document.querySelector('form').addEventListener('submit', (e)=>{
+  e.preventDefault()
+  submit();
+})
 
 // Ham menu
 const nav = document.getElementById('nav');
