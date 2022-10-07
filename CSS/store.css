@@ -12,6 +12,7 @@ body {
     user-select: none; 
     background-color: black;
     color:white;
+    overflow-x: hidden;
 }
 
 ul {
@@ -343,6 +344,15 @@ section.items div:hover img {
     z-index: 1;
 }
 
+.pickGender div span a{
+   color: black;
+}
+
+.pickGender div span:hover a{
+   color: white;
+   z-index: -100;
+}
+
 .pickGender div span + span::after {
    content: "";
    width: 101%;
@@ -368,7 +378,7 @@ section.items div:hover img {
     color:white
 }
 
-@media(max-width:700px){
+@media(max-width:800px){
     .pickGender{
         flex-direction: column;
         align-items: center;

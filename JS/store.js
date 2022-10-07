@@ -68,7 +68,7 @@ async function premiumInventory(openTemplate) {
   // Fill premiums on page load
   (() => {
     Object.keys(inventory).forEach((x) => {
-      pItems.innerHTML += `<div class = "pItem" id = ${inventory[x].id}>
+      pItems.innerHTML += `<div id = ${inventory[x].id}>
             <img src="${inventory[x].img}" alt="">
             <span id="itemName">${inventory[x].name}</span>
             <span id="itemprice">${inventory[x].price}</span>
@@ -77,23 +77,20 @@ async function premiumInventory(openTemplate) {
   })();
 
   // View premium item
-  document.querySelectorAll('.pItem').forEach((item) => {
-    item.addEventListener('click', () => {
-      const selectedItem = Object.keys(inventory).filter((x) => inventory[x].id === item.id);
-      openTemplate(
-        item.children[0].src,
-        item.children[1].textContent,
-        item.children[2].textContent,
-        inventory[selectedItem].options,
-      );
-    });
-  });
+  pItems.addEventListener('click',(e)=>{
+    const item = e.target.parentElement;
+    const selectedItem = Object.keys(inventory).filter((x) => inventory[x].id === item.id);
+    openTemplate(
+      item.children[0].src,
+      item.children[1].textContent,
+      item.children[2].textContent,
+      inventory[selectedItem].options,
+    );
+  })
 }
 
 // REGULAR INVENTORY FUNCTIONALITY
 function regularInventory(openTemplate) {
-  const mOption = document.getElementById('mens');
-  const wOption = document.getElementById('womans');
   const regItemsDisplay = document.getElementById('regInventoryDisplay');
   const regItems = document.getElementById('regItems');
   const gender = document.getElementById('gender');
@@ -101,8 +98,16 @@ function regularInventory(openTemplate) {
   const closeGender = document.getElementById('closeGender');
 
   // Fill Inventory on gender selection
-  mOption.addEventListener('click', () => { fillInventory('mens', 'Mens'); viewItem('mens'); });
-  wOption.addEventListener('click', () => { fillInventory('womans', 'Womans'); viewItem('womans'); });
+  genderOptionDisplay.addEventListener('click',(e)=>{
+    if(e.target.parentElement.id == 'mens' || e.target.id == 'mens'){
+      fillInventory('mens', 'Mens');
+       viewItem('mens');
+    }
+    if(e.target.parentElement.id == 'womans' || e.target.id == 'womans'){
+      fillInventory('womans', 'Womans');
+       viewItem('womans');
+    }
+  })
 
   function fillInventory(pickedGender, cat) {
     fetch('https://hackathon-store-default-rtdb.firebaseio.com/.json')
@@ -112,7 +117,7 @@ function regularInventory(openTemplate) {
         regItemsDisplay.style.display = 'block';
         gender.textContent = cat;
         Object.keys(data[pickedGender]).forEach((x) => {
-          regItems.innerHTML += `<div class = "rItem" id = ${data[pickedGender][x].id}>
+          regItems.innerHTML += `<div id = ${data[pickedGender][x].id}>
         <img src="${data[pickedGender][x].img}" alt="">
         <span id="itemName">${data[pickedGender][x].name}</span>
         <span id="itemprice">${data[pickedGender][x].price}</span>
@@ -128,23 +133,23 @@ function regularInventory(openTemplate) {
     regItems.innerHTML = '';
   });
 
-  // Open Item details
+  // View reg item
   async function viewItem(cat) {
     const inventory = await fetch('https://hackathon-store-default-rtdb.firebaseio.com/.json')
       .then((res) => res.json())
       .then((data) => data[cat]);
 
-    document.querySelectorAll('.rItem').forEach((item) => {
-      item.addEventListener('click', () => {
-        const selectedItem = Object.keys(inventory).filter((x) => inventory[x].id === item.id);
-        openTemplate(
-          item.children[0].src,
-          item.children[1].textContent,
-          item.children[2].textContent,
-          inventory[selectedItem].options,
-        );
-      });
-    });
+    regItems.addEventListener('click',(e)=>{
+      const item = e.target.parentElement
+      console.log(item)
+      const selectedItem = Object.keys(inventory).filter((x) => inventory[x].id === item.id);
+      openTemplate(
+        item.children[0].src,
+        item.children[1].textContent,
+        item.children[2].textContent,
+        inventory[selectedItem].options,
+      );
+    })
   }
 }
 
