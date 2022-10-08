@@ -1,5 +1,9 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-use-before-define */
+
+import styles from '../CSS/store.css';
+import "./kit.js"
+
 // UTIL. and initialization
 (function () {
   const popTemplate = {
@@ -77,7 +81,7 @@ async function premiumInventory(openTemplate) {
   })();
 
   // View premium item
-  pItems.addEventListener('click',(e)=>{
+  pItems.addEventListener('click', (e) => {
     const item = e.target.parentElement;
     const selectedItem = Object.keys(inventory).filter((x) => inventory[x].id === item.id);
     openTemplate(
@@ -86,7 +90,7 @@ async function premiumInventory(openTemplate) {
       item.children[2].textContent,
       inventory[selectedItem].options,
     );
-  })
+  });
 }
 
 // REGULAR INVENTORY FUNCTIONALITY
@@ -98,16 +102,16 @@ function regularInventory(openTemplate) {
   const closeGender = document.getElementById('closeGender');
 
   // Fill Inventory on gender selection
-  genderOptionDisplay.addEventListener('click',(e)=>{
-    if(e.target.parentElement.id == 'mens' || e.target.id == 'mens'){
+  genderOptionDisplay.addEventListener('click', (e) => {
+    if (e.target.parentElement.id == 'mens' || e.target.id == 'mens') {
       fillInventory('mens', 'Mens');
-       viewItem('mens');
+      viewItem('mens');
     }
-    if(e.target.parentElement.id == 'womans' || e.target.id == 'womans'){
+    if (e.target.parentElement.id == 'womans' || e.target.id == 'womans') {
       fillInventory('womans', 'Womans');
-       viewItem('womans');
+      viewItem('womans');
     }
-  })
+  });
 
   function fillInventory(pickedGender, cat) {
     fetch('https://hackathon-store-default-rtdb.firebaseio.com/.json')
@@ -139,9 +143,9 @@ function regularInventory(openTemplate) {
       .then((res) => res.json())
       .then((data) => data[cat]);
 
-    regItems.addEventListener('click',(e)=>{
-      const item = e.target.parentElement
-      console.log(item)
+    regItems.addEventListener('click', (e) => {
+      const item = e.target.parentElement;
+      console.log(item);
       const selectedItem = Object.keys(inventory).filter((x) => inventory[x].id === item.id);
       openTemplate(
         item.children[0].src,
@@ -149,7 +153,7 @@ function regularInventory(openTemplate) {
         item.children[2].textContent,
         inventory[selectedItem].options,
       );
-    })
+    });
   }
 }
 
@@ -230,5 +234,3 @@ function cartItems(popTemplate) {
     checkoutTotal.textContent = `Total: $${price.toFixed(2)}`;
   });
 }
-
-

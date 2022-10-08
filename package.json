@@ -2,10 +2,9 @@
   "name": "landing-page",
   "version": "1.0.0",
   "description": "Project1 util",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-
+    "build": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -18,8 +17,14 @@
   },
   "homepage": "https://github.com/EdwardIY/Project-1#readme",
   "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.3",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^4.2.1",
     "eslint": "^8.21.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0"
+    "eslint-plugin-import": "^2.26.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "webpack": "^5.74.0"
   }
 }

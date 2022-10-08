@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
+import styles from '../CSS/index.css';
 
 // PopUp Form
 const popUpForm = document.getElementById('signUpForm');
 const openPopUp = document.getElementById('signUp-Btn');
 const overlay = document.getElementById('overlay');
 const closePopUp = document.querySelectorAll('.close');
-const submitFormBtn = document.getElementById('submitForm');
 let submitted = false;
 
 function submit() {
@@ -44,11 +44,10 @@ closePopUp.forEach((x) => {
   });
 });
 
-
-document.querySelector('form').addEventListener('submit', (e)=>{
-  e.preventDefault()
+document.querySelector('form').addEventListener('submit', (e) => {
+  e.preventDefault();
   submit();
-})
+});
 
 // Ham menu
 const nav = document.getElementById('nav');
@@ -215,4 +214,3 @@ sr.reveal(
     delay: 500,
   },
 );
-
