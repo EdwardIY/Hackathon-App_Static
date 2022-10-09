@@ -446,12 +446,6 @@ footer ul li:nth-child(2) {
     margin: 0em 15px;
 }
 
-section .popTemplate_open,
-section .popTemplate_active {
-  z-index: 1;
-  opacity: 1;
-}
-
 .PU-bg {
   position: fixed;
   top: 0px;
@@ -519,11 +513,6 @@ section .popTemplate_active {
   width: 250px;
   color: white;
   outline: none;
-}
-.popUpTemplate .details select option {
-  background-color: black;
-  outline: none;
-  border: none;
 }
 .popUpTemplate .details .qtyToggle {
   display: flex;
@@ -725,28 +714,6 @@ section .popTemplate_active {
   gap:20px
 }
 
-.detailsContainer {
-  display: flex;
-  justify-content: space-between;
-  font-size:14px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.detailsContainer .n {
- font-size:18px;
-}
-
-.detailsContainer img {
-  width: 30%;
-}
-
-.cartContainer .remove {
-  align-self: flex-end;
-  text-decoration: underline;
-  cursor: pointer;
-  font-size: 15px;
-}
-
 .checkoutContainer {
   position: fixed;
   bottom: 0px;
@@ -766,12 +733,6 @@ section .popTemplate_active {
 .checkoutContainer div:nth-child(2) {
    text-align: start;
   }
-
-
-
-.total {
-  font-weight: 700;
-}
 
 .closeCart {
   position: absolute;
@@ -794,5 +755,4 @@ section .popTemplate_active {
   .cartContainer { width: 100vw;}
   .checkoutContainer { width: 100vw;}
   .checkoutContainer div:nth-child(2) { text-align: center;}
-  .detailsContainer .n { font-size:16px;}
 }

@@ -835,29 +835,11 @@ footer ul li:nth-child(2) {
 
 /* MEDIAS FOR SIGN UP */
 @media(max-width:980px) {
-    .signUp-form h3 {
-        font-size: 40px;
-
-    }
-
-    .formBtn {
-        font-size: 15px;
-    }
 
 
     @media(max-width:575px) {
         form h3 {
             font-size: 12vw;
-        }
-
-
-        .formBtn {
-            font-size: 4vw;
-            padding: 0em 5em;
-        }
-
-        .formBtn1 {
-            font-size: 4vw;
         }
     }
 
