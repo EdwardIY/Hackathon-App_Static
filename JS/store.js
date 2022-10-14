@@ -27,6 +27,7 @@ import "./kit.js"
     popTemplate.backGround.classList.add('popTemplate_active');
 
     popTemplate.img.src = imgSrc;
+    popTemplate.img.alt = name;
     popTemplate.name.textContent = name;
     popTemplate.price.textContent = price;
     popTemplate.options.innerHTML = options;
