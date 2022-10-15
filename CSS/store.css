@@ -1,11 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Shadows+Into+Light&display=swap');
+
+ @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Shadows+Into+Light&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 html {
   scroll-behavior: smooth;
 }
+* {
+  box-sizing: border-box;
+}
 
 body {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: poppins, Arial, Helvetica, sans-serif;
@@ -121,7 +124,7 @@ header li:hover::after {
     border-radius: 10px;
     transition: .3s;
     cursor: pointer;
-    width: 100px;
+    width: 120px;
     text-align: center;
 }
 
@@ -246,7 +249,9 @@ section.items div span + span {
 }
 
 section.items div img {
-    width:100%;
+  width: 250px;
+    /* width:100%; */
+    height: 250px;
     transition: .3s;
     opacity: .7;
     border:2px solid transparent
@@ -271,7 +276,7 @@ section.items div:hover img {
         margin-top: 10px;
 }
 }
-@media(max-width:750px){
+@media(max-width:1075px){
     section .items div{
         width:35%;
     }
@@ -284,13 +289,17 @@ section.items div:hover img {
       margin-top: 80px;
     }
 }
-@media(max-width:500px){
+@media(max-width:630px){
     section .items{
         flex-direction: column;
         align-items: center;
     }
     section .items div{
-        width:70%;
+        width:100%;
+    }
+    section .items div img{
+        width:300px;
+        height:300px;
     }
 }
 
@@ -446,6 +455,11 @@ footer ul li:nth-child(2) {
     margin: 0em 15px;
 }
 
+section .popTemplate_open,
+section .popTemplate_active {
+  z-index: 1;
+  opacity: 1;
+}
 
 .PU-bg {
   position: fixed;
@@ -514,6 +528,11 @@ footer ul li:nth-child(2) {
   width: 250px;
   color: white;
   outline: none;
+}
+.popUpTemplate .details select option {
+  background-color: black;
+  outline: none;
+  border: none;
 }
 .popUpTemplate .details .qtyToggle {
   display: flex;
@@ -682,8 +701,8 @@ footer ul li:nth-child(2) {
   right:-550px;
   background-color: rgb(255, 255, 255);
   color: black;
-  width: 500px;
-  height: 80vh;
+  width: 550px;
+  height: 100vh;
   display: flex;
   padding: .5em;
   padding-bottom: 10em;
@@ -715,16 +734,39 @@ footer ul li:nth-child(2) {
   gap:20px
 }
 
+.detailsContainer {
+  display: flex;
+  justify-content: space-between;
+  font-size:14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.detailsContainer .n {
+ font-size:18px;
+}
+
+.detailsContainer img {
+  width: 30%;
+}
+
+.cartContainer .remove {
+  align-self: flex-end;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 15px;
+}
+
 .checkoutContainer {
   position: fixed;
-  bottom: 0px;
   right:-550px;
+  bottom: 0px;
   background-color: rgba(0, 0, 0, 0.798);
   color:gold;
   z-index: 4;
   font-size: 22px;
-  width: 494px;
-  padding: 1em .5em;
+  width: 100%;
+  width: 550px;
+  padding: 1em 1em;
   text-align: center;
   cursor: pointer;
   font-weight: 600;
@@ -734,6 +776,12 @@ footer ul li:nth-child(2) {
 .checkoutContainer div:nth-child(2) {
    text-align: start;
   }
+
+
+
+.total {
+  font-weight: 700;
+}
 
 .closeCart {
   position: absolute;
@@ -756,5 +804,8 @@ footer ul li:nth-child(2) {
   .cartContainer { width: 100vw;}
   .checkoutContainer { width: 100vw;}
   .checkoutContainer div:nth-child(2) { text-align: center;}
+  .detailsContainer .n { font-size:14px;}
+  .detailsContainer .s { font-size:12px;}
+  .detailsContainer .p { font-size:12px;}
+  .detailsContainer .q { font-size:12px;}
 }
-

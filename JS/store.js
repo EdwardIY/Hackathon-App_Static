@@ -123,7 +123,7 @@ function regularInventory(openTemplate) {
         gender.textContent = cat;
         Object.keys(data[pickedGender]).forEach((x) => {
           regItems.innerHTML += `<div id = ${data[pickedGender][x].id}>
-        <img src="${data[pickedGender][x].img}" alt="">
+        <img src="${data[pickedGender][x].img}" alt=${data[pickedGender][x].name}>
         <span id="itemName">${data[pickedGender][x].name}</span>
         <span id="itemprice">${data[pickedGender][x].price}</span>
     </div>`;
@@ -146,7 +146,6 @@ function regularInventory(openTemplate) {
 
     regItems.addEventListener('click', (e) => {
       const item = e.target.parentElement;
-      console.log(item);
       const selectedItem = Object.keys(inventory).filter((x) => inventory[x].id === item.id);
       openTemplate(
         item.children[0].src,
@@ -187,7 +186,7 @@ function cartItems(popTemplate) {
     // LOCAl MEM---------------------
     cart.innerHTML += `
     <div class="detailsContainer">
-    <img src="${popTemplate.img.src}"alt="">
+    <img src="${popTemplate.img.src}"alt=${popTemplate.name.textContent}>
     <div>
         <div class="n">${popTemplate.name.textContent}</div>
         <div class="s">${popTemplate.options.value}</div>
@@ -209,8 +208,6 @@ function cartItems(popTemplate) {
           cartCountInput.textContent = '';
         }
         price -= +x.previousElementSibling.children[2].textContent.slice(1);
-        // console.log(+x.previousElementSibling.children[2].textContent.slice(1));
-        // console.log(price);
         checkoutTotal.textContent = `Total: $${price.toFixed(2)}`;
         x.parentElement.remove();
       });
@@ -232,6 +229,7 @@ function cartItems(popTemplate) {
   // Update cart total
   template.add.addEventListener('click', () => {
     price += +cart.children[cart.children.length - 1].children[1].children[2].textContent.slice(1);
+    if(price < 0) price *= -1;
     checkoutTotal.textContent = `Total: $${price.toFixed(2)}`;
   });
 }
