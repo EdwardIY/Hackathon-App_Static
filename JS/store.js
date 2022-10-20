@@ -193,7 +193,7 @@ function cartItems(popTemplate) {
         <div class="p">$${(+popTemplate.price.textContent.slice(1) * popTemplate.qtyCount).toFixed(2)}</div>
         <div class="q">Qty: ${popTemplate.qtyCount} </div>
     </div>
-    <div class="remove">REMOVE</div>
+    <button class="remove">REMOVE</button>
 </div>`;
   });
 

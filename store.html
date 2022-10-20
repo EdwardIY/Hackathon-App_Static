@@ -17,8 +17,9 @@
 <body>
 
     <!-- NAVIGATION / HEADER -->
-    <div id="closeBtn" class="closeBtn">Close</div>
-    <div id="openBtn" class="openBtn">Open Menu</div>
+    <button aria-label="menu" id="closeBtn" class="closeBtn">Close</button>
+    <button aria-label="menu" id="openBtn" class="openBtn">Open Menu</button>
+
     <header class="fade-In">
         <nav id="nav">
             <ul>
@@ -48,17 +49,21 @@
                 <span id="pPrice" class="price"></span>
                 <select id="pOptions"></select>
                 <div class="qtyToggle">
-                    <i class="fa-solid fa-minus" id="dec"></i>
-                    <span id="qty"></span>
-                    <i class="fa-solid fa-plus" id="inc"></i>
+                    <button>
+                        <i class="fa-solid fa-minus" id="dec"></i>
+                    </button>
+                    <span aria-label="quantity" id="qty"></span>
+                    <button>
+                        <i class="fa-solid fa-plus" id="inc"></i>
+                    </button>
                 </div>
-                <div class="black-bg-Btn" id="add">
+                <button class="black-bg-Btn" id="add">
                     ADD TO CART
-                </div>
+                </button>
                 <div class="added" id="addedMsg">Added!</div>
-                <div id="closepPU" class="close">
+                <button id="closepPU" class="close">
                     Back
-                </div>
+                </button>
             </div>
         </section>
     </section>
@@ -66,17 +71,17 @@
     <section class="pickGender" id="pickGender">
         <div class="bottom-In">
             <span>Mens</span>
-            <span id="mens"><a href="#regItems">VIEW PRODUCTS</a></span>
+            <button id="mens"><a href="#regItems">VIEW PRODUCTS</a></button>
         </div>
         <div class="top-In">
             <span>Womans</span>
-            <span id="womans"> <a href="#regItems">VIEW PRODUCTS</a></span>
+            <button id="womans"> <a href="#regItems">VIEW PRODUCTS</a></button>
         </div>
     </section>
     <!-- REG ITEMS DISPLAY (BY GENDER) -->
     <section class="regInventoryDisplay" id="regInventoryDisplay">
         <h2 id="gender" class="gender"></h2>
-        <div class="white-bg-Btn closeGender" id="closeGender">Back</div>
+        <button class="white-bg-Btn closeGender" id="closeGender">Back</button>
         <section id="regItems" class="items">
 
         </section>
@@ -84,10 +89,10 @@
     <!-- CART -->
     <div class="cartContainer" id="cartContainer">
         <div class="emptyMsg" id="emptyMsg">Your cart is empty</div>
-        <div class="closeCart" id="closeCart">
+        <button class="closeCart" id="closeCart">
             <i class="fa-solid fa-right-long"></i>
             <div>Back</div>
-        </div>
+        </button>
 
         <div class="cart" id="cart"></div>
         <div class="checkoutContainer" id="checkoutContainer">

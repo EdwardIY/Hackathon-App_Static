@@ -8,6 +8,12 @@ html {
   box-sizing: border-box;
 }
 
+button {
+  all: initial;
+  color: inherit;
+  font-family: inherit;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -120,7 +126,7 @@ header li:hover::after {
     background-color:rgba(0, 0, 0, 0.852);
     border: 2px solid #ead89d;
     font-weight: bold;
-    padding: .5em .5em;
+    padding: .6em .5em;
     border-radius: 10px;
     transition: .3s;
     cursor: pointer;
@@ -333,14 +339,15 @@ section.items div:hover img {
     clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
 }
 
-.pickGender div span {
+.pickGender div span,
+.pickGender button {
     font-size: 60px;
     margin-left: 50px;
     margin-bottom: 30px;
     cursor: pointer;
 }
 
-.pickGender div span + span {
+.pickGender div span + button {
     margin-bottom: 100px;
     width: 170px;
     text-align: center;
@@ -353,16 +360,16 @@ section.items div:hover img {
     z-index: 1;
 }
 
-.pickGender div span a{
+.pickGender div button a{
    color: black;
 }
 
-.pickGender div span:hover a{
+.pickGender div button:hover a{
    color: white;
    z-index: -100;
 }
 
-.pickGender div span + span::after {
+.pickGender div span + button::after {
    content: "";
    width: 101%;
    height: 101%;
@@ -378,11 +385,11 @@ section.items div:hover img {
    z-index: -1;
 }
 
-.pickGender div span + span:hover::after {
+.pickGender div span + button:hover::after {
     width: 0%;
 
 }
-.pickGender div span + span:hover {
+.pickGender div span + button:hover {
     outline-color: white;
     color:white
 }
@@ -409,7 +416,8 @@ section.items div:hover img {
 
 }
 @media(max-width:350px){
-    .pickGender div span {
+    .pickGender div span,
+    .pickGender div button {
         margin-left: 10px;
     }
 
@@ -687,6 +695,10 @@ section .popTemplate_active {
   }
   .white-bg-Btn {
     margin: 0em auto 2em auto;
+    text-align: center;
+    display: block;
+    /* align-self: center; */
+    /* margin: 0em auto 2em auto; */
   }
 }
 
