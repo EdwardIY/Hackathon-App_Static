@@ -172,7 +172,7 @@ header li:hover::after {
 
 
 .landingpageContainer {
-    background: url(/images/landing_page2.jpg) center center;
+    background: url(../images/landing_page2.jpg) center center;
     background-size: cover;
     background-color: #784998f9;
     background-blend-mode: overlay;

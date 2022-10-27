@@ -156,17 +156,17 @@ header li:hover::after {
 
 @media(max-width:500px){
     .landingImg {
-        background-image: url(/images/LandingImg.Small-min.jpg)
+        background-image: url(../images/LandingImg.Small-min.jpg)
 }
 }
 @media(max-width:800px){
     .landingImg {
-        background-image: url(/images/LandingImg.Medium-min.jpg)
+        background-image: url(../images/LandingImg.Medium-min.jpg)
 }
 }
 @media(min-width:801px){
     .landingImg {
-        background-image: url(/images/LandingImg.Large-min.jpg);
+        background-image: url(../images/LandingImg.Large-min.jpg);
     }
 }
 
@@ -333,7 +333,7 @@ header li:hover::after {
 }
 
 .person1 {
-    background: url(/images/54.jpg) center center;
+    background: url(../images/54.jpg) center center;
     background-size: cover;
     width: 220px;
     height: 220px;
@@ -344,7 +344,7 @@ header li:hover::after {
 }
 
 .person2 {
-    background: url(/images/71.jpg) center center;
+    background: url(../images/71.jpg) center center;
     background-size: cover;
     background-position: 0px -10px;
     width: 220px;
@@ -355,7 +355,7 @@ header li:hover::after {
 }
 
 .person3 {
-    background: url(/images/lp.jpg) center center;
+    background: url(../images/lp.jpg) center center;
     background-size: cover;
     width: 220px;
     height: 220px;
@@ -366,7 +366,7 @@ header li:hover::after {
 }
 
 .person4 {
-    background: url(/images/p89.jpg) center center;
+    background: url(../images/p89.jpg) center center;
     background-size: cover;
     width: 220px;
     height: 220px;
@@ -494,12 +494,12 @@ header li:hover::after {
 
 @media(max-width:500px){
     .signUp-Container {
-        background-image: url(/images/SignUpImg.Small-min.jpg)
+        background-image: url(../images/SignUpImg.Small-min.jpg)
 }
 }
 @media(min-width:501px){
     .signUp-Container {
-        background-image: url(/images/SignUpImg.Medium-min.jpg);
+        background-image: url(../images/SignUpImg.Medium-min.jpg);
     }
 }
 
