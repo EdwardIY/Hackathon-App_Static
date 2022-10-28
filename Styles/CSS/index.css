@@ -848,9 +848,8 @@ footer ul li:nth-child(2) {
         font-size: 15px;
     }
 
-
     @media(max-width:575px) {
-        form h3 {
+        .signUp-form h3 {
             font-size: 12vw;
         }
 
@@ -900,4 +899,104 @@ footer ul li:nth-child(2) {
         border-bottom: none;
     }
 
+}
+
+.formContainer {
+    padding: 0px 100px;
+    margin: 15vh 0vh;
+    margin-bottom: 0vh;
+    color: white;
+}
+
+.postForm {
+    border: 1px solid white ;
+    width:50%;
+    padding:  .7em 2em;
+}
+
+::placeholder {
+font-family: poppins;
+font-size: 14px;
+}
+
+.postForm input,
+.postForm textarea {
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+    padding: .8em .3em ;
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+}
+
+.postForm textarea {
+    height: 75px;
+}
+
+.postForm .button1 {
+    all: initial;
+    color: black;
+    font-family: inherit;
+   font-size: 18px;
+   text-align: center;
+   background-color: white;
+   padding: .4em 0em;
+   width: 190px;
+   border-radius: 17px;
+   cursor: pointer;
+   transition: .2s;
+}
+@media(max-width:900px){
+    .formContainer {
+        padding: 0;
+    }
+    .postForm {
+        margin: auto;
+        text-align: center;
+        width:70%;
+    }
+    .postForm {
+        width: 90vw;
+        padding: .7em 0em;
+    }
+
+    .postForm input,
+    .postForm textarea {
+        width:80%;
+    }
+
+    .commentsContainer h3 {
+        margin-left: 25px;
+    }
+    .commentsContainer h4 {
+        margin-left: 15px;
+    }
+    .commentsContainer p {
+        margin-left: 20px;
+    }
+}
+
+
+
+.commentsContainer {
+    color: white;
+}
+
+.commentsContainer h3 {
+    font-size: 35px;
+}
+
+.commentsContainer h4 {
+    font-size: 20px;
+}
+
+.commentsContainer h4,
+.commentsContainer p {
+padding: 0em 1em;
+}
+
+.commentsContainer h4 span {
+    font-size: smaller;
+    text-decoration: underline;
 }

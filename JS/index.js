@@ -1,4 +1,15 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 import './kit.js';
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
 // PopUp Form
 const popUpForm = document.getElementById('signUpForm');
 const openPopUp = document.getElementById('signUp-Btn');
@@ -43,104 +54,78 @@ document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
     submit();
 });
-// Ham menu
-const nav = document.getElementById('nav');
-const openBtn = document.getElementById('openBtn');
-const closeBtn = document.getElementById('closeBtn');
-openBtn.addEventListener('click', () => {
-    nav.style.top = '0vh';
-    openBtn.style.zIndex = '-1';
-    openBtn.style.opacity = '0';
-    closeBtn.style.zIndex = '3';
-    closeBtn.style.opacity = '1';
+// Blog
+const firebaseConfig = {
+    apiKey: "AIzaSyCFnKFOaeDVrWFcotnHGLqWKpABnCtqq08",
+    authDomain: "college-blog-38818.firebaseapp.com",
+    projectId: "college-blog-38818",
+    storageBucket: "college-blog-38818.appspot.com",
+    messagingSenderId: "821421394859",
+    appId: "1:821421394859:web:17934e0b4cf79d64c660ee",
+    measurementId: "G-5WWZ2RTHX5"
+};
+const app = initializeApp(firebaseConfig);
+const db = getDatabase();
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+// FORM
+const postForm = document.getElementById('postForm');
+const usernameInput = document.getElementById('name');
+const emailInput = document.getElementById('emailInput');
+const bodyInput = document.getElementById('body');
+console.log(usernameInput);
+console.log(emailInput);
+console.log(bodyInput);
+postForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    writePost(usernameInput.value, bodyInput.value, emailInput.value);
 });
-closeBtn.addEventListener('click', () => {
-    nav.style.top = '-100vh';
-    closeBtn.style.zIndex = '-1';
-    closeBtn.style.opacity = '0';
-    openBtn.style.zIndex = '3';
-    openBtn.style.opacity = '1';
-});
-// Transitions
-window.sr = ScrollReveal();
-sr.reveal('.left-In1', {
-    origin: 'left',
-    distance: '100px',
-    duration: 1000,
-    delay: 500,
-});
-sr.reveal('.bottom-In', {
-    origin: 'bottom',
-    distance: '100px',
-    duration: 2000,
-    viewFactor: 0.4,
-});
-sr.reveal('.bottom-InDelay', {
-    origin: 'bottom',
-    distance: '100px',
-    duration: 2000,
-    viewFactor: 0.4,
-    delay: 500,
-});
-sr.reveal('.fade-In', {
-    duration: 2000,
-    opacity: 0,
-});
-sr.reveal('.fade-In-fast', {
-    duration: 1000,
-    opacity: 0,
-});
-sr.reveal('.left-In2', {
-    origin: 'left',
-    distance: '100px',
-    duration: 2000,
-    viewFactor: 0.3,
-});
-sr.reveal('.top-In', {
-    origin: 'top',
-    distance: '100px',
-    duration: 2000,
-    viewFactor: 0.3,
-});
-sr.reveal('.item1-up-In', {
-    origin: 'bottom',
-    distance: '50px',
-    viewFactor: 0.2,
-});
-sr.reveal('.item2-up-In', {
-    delay: 100,
-    origin: 'bottom',
-    distance: '50px',
-    viewFactor: 0.2,
-});
-sr.reveal('.item3-up-In', {
-    delay: 200,
-    origin: 'bottom',
-    distance: '50px',
-    viewFactor: 0.2,
-});
-sr.reveal('.item4-up-In', {
-    delay: 300,
-    origin: 'bottom',
-    distance: '50px',
-    viewFactor: 0.2,
-});
-sr.reveal('.item5-up-In', {
-    delay: 400,
-    origin: 'bottom',
-    distance: '50px',
-    viewFactor: 0.2,
-});
-sr.reveal('.left-In3', {
-    origin: 'left',
-    distance: '100px',
-    duration: 2000,
-    viewFactor: 0.3,
-});
-sr.reveal('.right-In', {
-    origin: 'right',
-    distance: '100px',
-    duration: 2000,
-    viewFactor: 0.3,
-    delay: 500,
-});
+// COMMENTS
+const commentsContainer = document.getElementById('comments');
+const numOfComments = document.getElementById('num');
+let comments = "";
+function writePost(username, post, email) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const lengthRequest = yield fetch('https://college-blog-38818-default-rtdb.firebaseio.com/.json');
+        const res = yield lengthRequest.json();
+        let id;
+        if (!res) {
+            id = 0;
+        }
+        else
+            id = +Object.keys(res.post).slice(-1) + 1;
+        const reference = ref(db, 'post/' + id);
+        if (email) {
+            yield set(reference, { username, body: post, email });
+            updatePost();
+        }
+        else {
+            yield set(reference, { username, body: post, date: {
+                    month: months[new Date().getMonth()],
+                    dayOfMonth: new Date().getDate(),
+                    year: new Date().getFullYear()
+                } });
+            updatePost();
+        }
+    });
+}
+updatePost();
+function updatePost() {
+    fetch('https://college-blog-38818-default-rtdb.firebaseio.com/.json')
+        .then((res) => res.json())
+        .then((data) => {
+        if (!data) {
+            commentsContainer.innerHTML = "<h3> No posts..</h3>";
+            numOfComments.textContent = '0';
+        }
+        else {
+            console.log(data);
+            Object.keys(data.post).forEach((x, i) => {
+                console.log(data.post[i]);
+                comments += `<h4>${data.post[x].username} - <span>${data.post[i].date.month}, ${data.post[i].date.dayOfMonth} ${data.post[i].date.year}</span></h4><p>${data.post[x].body}</p> <br>`;
+            });
+            numOfComments.textContent = Object.keys(data.post).length.toString();
+            commentsContainer.innerHTML = comments;
+            comments = "";
+        }
+    });
+}
