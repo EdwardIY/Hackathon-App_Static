@@ -1,0 +1,36 @@
+{
+  "name": "landing-page",
+  "version": "1.0.0",
+  "description": "Project1 util",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdwardIY/Project-1.git"
+  },
+  "author": "Edward Ibeh-Young",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EdwardIY/Project-1/issues"
+  },
+  "homepage": "https://github.com/EdwardIY/Project-1#readme",
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.3",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^4.2.1",
+    "eslint": "^8.26.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.4.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "mini-css-extract-plugin": "^2.6.1",
+    "typescript": "^4.8.4",
+    "webpack": "^5.74.0"
+  }
+}

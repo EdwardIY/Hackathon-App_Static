@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- test -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/675ee43295.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="Styles/CSS/store.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body>
+
+    <!-- NAVIGATION / HEADER -->
+    <button aria-label="menu" id="closeBtn" class="closeBtn">Close</button>
+    <button aria-label="menu" id="openBtn" class="openBtn">Open Menu</button>
+
+    <header class="fade-In">
+        <nav id="nav">
+            <ul>
+                <li class="logo"> <a href="./index.html">CpHR</a></li>
+                <li><a href="#pickGender">Mens</a> </li>
+                <li><a href="#pickGender">Womens</a> </li>
+                <li><a href="#prem">Premium</a></li>
+                <li id="openCart">Cart<sup id="cartCountInput"></sup></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- LANDING PAGE -->
+    <section class="landingpageContainer">
+        <h1 class="fade-In">Shop CpHR</h1>
+        <p>Home of premium and high quailty merchandise to express your love for CpHr</p>
+    </section>
+    <section>
+        <!-- Premium ITEMS DISPLAY () -->
+        <h2 id="premiumTitle" class="left-In2">Premiums</h2>
+        <section id="pItemsDisplay" class="items bottom-In"></section>
+        <!-- POPUP Template -->
+        <div class="PU-bg" id="PU-bg"></div>
+        <section class="popUpTemplate" id="pPU">
+            <img id="pImg" src="" alt="premium item">
+            <div class="details">
+                <span id="pName" class="name"></span>
+                <span id="pPrice" class="price"></span>
+                <select id="pOptions"></select>
+                <div class="qtyToggle">
+                    <button>
+                        <i class="fa-solid fa-minus" id="dec"></i>
+                    </button>
+                    <span aria-label="quantity" id="qty"></span>
+                    <button>
+                        <i class="fa-solid fa-plus" id="inc"></i>
+                    </button>
+                </div>
+                <button class="black-bg-Btn" id="add">
+                    ADD TO CART
+                </button>
+                <div class="added" id="addedMsg">Added!</div>
+                <button id="closepPU" class="close">
+                    Back
+                </button>
+            </div>
+        </section>
+    </section>
+    <!-- PICK GENDER -->
+    <section class="pickGender" id="pickGender">
+        <div class="bottom-In">
+            <span>Mens</span>
+            <button id="mens"><a href="#regItems">VIEW PRODUCTS</a></button>
+        </div>
+        <div class="top-In">
+            <span>Womans</span>
+            <button id="womans"> <a href="#regItems">VIEW PRODUCTS</a></button>
+        </div>
+    </section>
+    <!-- REG ITEMS DISPLAY (BY GENDER) -->
+    <section class="regInventoryDisplay" id="regInventoryDisplay">
+        <h2 id="gender" class="gender"></h2>
+        <button class="white-bg-Btn closeGender" id="closeGender">Back</button>
+        <section id="regItems" class="items">
+
+        </section>
+    </section>
+    <!-- CART -->
+    <div class="cartContainer" id="cartContainer">
+        <div class="emptyMsg" id="emptyMsg">Your cart is empty</div>
+        <button class="closeCart" id="closeCart">
+            <i class="fa-solid fa-right-long"></i>
+            <div>Back</div>
+        </button>
+
+        <div class="cart" id="cart"></div>
+        <div class="checkoutContainer" id="checkoutContainer">
+            <div id="checkout">CHECKOUT</div>
+            <div id="checkoutTotal"></div>
+        </div>
+    </div>
+
+
+
+
+
+    <footer>
+        <h1>About Us</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis animi delectus totam enim quibusdam sunt quos
+            molestias odio reprehenderit nihil.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae reiciendis rem delectus sequi quo corporis
+            provident alias rerum ut exercitationem totam, minus qui tenetur, voluptatem voluptatibus accusantium
+            deleniti. Quisquam, deserunt.</p>
+        <h4>Social Links</h4>
+        <ul class="links">
+            <li>LinkedIn</li>
+            <li>Facebook
+            <li>
+            <li>Instagram
+            <li>
+        </ul>
+    </footer>
+
+
+
+
+
+
+
+    <script type="module" src="JS/store.js"></script>
+</body>
+
+</html>
