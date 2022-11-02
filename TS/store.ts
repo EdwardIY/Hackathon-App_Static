@@ -4,11 +4,11 @@ import "./kit.js"
 // UTIL. and initialization
 (function () {
   const popTemplate = {
-    template: document.getElementById('pPU')!,
-    backGround: document.getElementById('PU-bg')!,
+    template: document.getElementById('pPU') as HTMLElement,
+    backGround: document.getElementById('PU-bg') as HTMLElement,
     img: document.getElementById('pImg') as HTMLImageElement,
-    name: document.getElementById('pName')!,
-    price: document.getElementById('pPrice')!,
+    name: document.getElementById('pName') as HTMLElement,
+    price: document.getElementById('pPrice') as HTMLElement,
     options: document.getElementById('pOptions') as HTMLSelectElement,
     qty: document.getElementById('qty')as HTMLSelectElement,
     qtyCount: 1,
@@ -29,7 +29,7 @@ import "./kit.js"
     popTemplate.price.textContent = price;
     popTemplate.options.innerHTML = options;
     popTemplate.qty.textContent = popTemplate.qtyCount.toString();
-  };
+  }
 
   // Close Item
   popTemplate.close.addEventListener('click', () => {
@@ -59,8 +59,8 @@ import "./kit.js"
 }());
 
 // PREMIUM FUNCTIONALITY
-async function premiumInventory(openTemplate:Function) {
-  const pItems = document.getElementById('pItemsDisplay')!;
+async function premiumInventory(openTemplate: { (imgSrc: string, name: string, price: string, options: string): void; (arg0: any, arg1: any, arg2: any, arg3: any): void; }) {
+  const pItems = document.getElementById('pItemsDisplay') as HTMLElement;
 
   // Get premiums
   const inventory = await fetch('https://hackathon-store-default-rtdb.firebaseio.com/.json')
@@ -92,12 +92,12 @@ async function premiumInventory(openTemplate:Function) {
 }
 
 // REGULAR INVENTORY FUNCTIONALITY
-function regularInventory(openTemplate:Function) {
-  const regItemsDisplay = document.getElementById('regInventoryDisplay')!;
-  const regItems = document.getElementById('regItems')!;
-  const gender = document.getElementById('gender')!;
-  const genderOptionDisplay = document.getElementById('pickGender')!;
-  const closeGender = document.getElementById('closeGender')!;
+function regularInventory(openTemplate:any) {
+  const regItemsDisplay = document.getElementById('regInventoryDisplay') as HTMLElement;
+  const regItems = document.getElementById('regItems') as HTMLElement;
+  const gender = document.getElementById('gender') as HTMLElement;
+  const genderOptionDisplay = document.getElementById('pickGender') as HTMLElement;
+  const closeGender = document.getElementById('closeGender') as HTMLElement;
 
   // Fill Inventory on gender selection
   genderOptionDisplay.addEventListener('click', (e:any) => {
@@ -168,20 +168,20 @@ interface PopTemplateFormat {
     dec:HTMLElement;
     add:HTMLElement;
     close: HTMLElement;
-  };
+  }
 
 function cartItems(popTemplate:PopTemplateFormat) {
   const template = popTemplate;
-  const cartContainer = document.getElementById('cartContainer')!;
-  const cart = document.getElementById('cart')!;
-  const cartCountInput = document.getElementById('cartCountInput')!;
-  const openCart = document.getElementById('openCart')!;
-  const closeCart = document.getElementById('closeCart')!;
-  const checkoutContainer = document.getElementById('checkoutContainer')!;
+  const cartContainer = document.getElementById('cartContainer') as HTMLElement;
+  const cart = document.getElementById('cart') as HTMLElement;
+  const cartCountInput = document.getElementById('cartCountInput') as HTMLElement;
+  const openCart = document.getElementById('openCart') as HTMLElement;
+  const closeCart = document.getElementById('closeCart') as HTMLElement;
+  const checkoutContainer = document.getElementById('checkoutContainer') as HTMLElement;
   let cartCount = 0;
-  const checkoutTotal = document.getElementById('checkoutTotal')!;
-  const addedMsg = document.getElementById('addedMsg')!;
-  const emptyMsg = document.getElementById('emptyMsg')!;
+  const checkoutTotal = document.getElementById('checkoutTotal') as HTMLElement;
+  const addedMsg = document.getElementById('addedMsg') as HTMLElement;
+  const emptyMsg = document.getElementById('emptyMsg') as HTMLElement;
   let price = 0;
 
   // Add Item

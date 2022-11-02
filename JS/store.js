@@ -35,7 +35,6 @@ import "./kit.js";
         popTemplate.options.innerHTML = options;
         popTemplate.qty.textContent = popTemplate.qtyCount.toString();
     }
-    ;
     // Close Item
     popTemplate.close.addEventListener('click', () => {
         popTemplate.template.classList.remove('popTemplate_open');
@@ -139,7 +138,6 @@ function regularInventory(openTemplate) {
         });
     }
 }
-;
 function cartItems(popTemplate) {
     const template = popTemplate;
     const cartContainer = document.getElementById('cartContainer');

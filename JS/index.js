@@ -64,6 +64,7 @@ const firebaseConfig = {
     appId: "1:821421394859:web:17934e0b4cf79d64c660ee",
     measurementId: "G-5WWZ2RTHX5"
 };
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

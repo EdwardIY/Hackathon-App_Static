@@ -3,10 +3,10 @@ import './kit.js'
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
 import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
 // PopUp Form
-const popUpForm = document.getElementById('signUpForm')!;
-const openPopUp = document.getElementById('signUp-Btn')!;
-const overlay = document.getElementById('overlay')!;
-const closePopUp = document.querySelectorAll('.close')!;
+const popUpForm = document.getElementById('signUpForm') as HTMLElement;
+const openPopUp = document.getElementById('signUp-Btn') as HTMLElement;
+const overlay = document.getElementById('overlay') as HTMLElement;
+const closePopUp = document.querySelectorAll('.close') as NodeList;
 let submitted = false;
 
 function submit() {
@@ -61,13 +61,14 @@ const firebaseConfig = {
   appId: "1:821421394859:web:17934e0b4cf79d64c660ee",
   measurementId: "G-5WWZ2RTHX5"
 };
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const app = initializeApp(firebaseConfig);
 const db  = getDatabase()
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November','December']
 
 
 // FORM
-const postForm = document.getElementById('postForm')!;
+const postForm = document.getElementById('postForm') as HTMLElement;
 const usernameInput = document.getElementById('name') as HTMLInputElement;
 const emailInput = document.getElementById('emailInput') as HTMLInputElement;
 const bodyInput = document.getElementById('body') as HTMLInputElement;
@@ -83,8 +84,8 @@ postForm.addEventListener('submit', (e)=>{
 })
 
 // COMMENTS
-const commentsContainer = document.getElementById('comments')!;
-const numOfComments = document.getElementById('num')!;
+const commentsContainer = document.getElementById('comments') as HTMLElement;
+const numOfComments = document.getElementById('num') as HTMLElement;
 let comments = "";
 
 async function writePost(username:string,post:string,email:string) {
